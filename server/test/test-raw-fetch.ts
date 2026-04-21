@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import fetch from 'node-fetch';
 import { sceneLayoutPrompt } from '../src/prompts/index.js';
 
@@ -18,7 +19,7 @@ const body = JSON.stringify({
   response_format: { type: 'json_object' },
 });
 
-const API_KEY = 'sk-f2b5fde68c9a40009de673b2bb3128eb';
+const API_KEY = process.env.LLM_API_KEY ?? '';
 const TOTAL_RUNS = 3;
 
 async function runOnce(index: number) {
