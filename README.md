@@ -30,10 +30,6 @@ cd ..
 
 **前端**（项目根目录）：
 
-```bash
-cp .env.example .env
-```
-
 编辑根目录 `.env`，将 `VITE_USE_REAL_API` 改为 `true`：
 
 ```env
@@ -42,10 +38,6 @@ VITE_API_BASE_URL=http://localhost:3001
 ```
 
 **后端**（server 目录）：
-
-```bash
-cp server/.env.example server/.env
-```
 
 编辑 `server/.env`，填入 API Key：
 
