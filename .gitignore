@@ -7,8 +7,7 @@ dist
 *.tsbuildinfo
 server/logs/
 server/cache/
-server/test/fixtures/*.json
-server/test/fixtures/*.png
+server/test/
 
 # IDE
 .cursor/
