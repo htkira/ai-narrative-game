@@ -1,6 +1,6 @@
 # AI 叙事推理游戏
 
-基于 AI 动态生成的古风叙事推理游戏。前端 React + Vite，后端 Express，通过 DeepSeek / OpenRouter 调用大语言模型与图像生成模型，实现每局不同的故事、线索和画面。
+基于 AI 动态生成的叙事推理游戏。前端 React + Vite，后端 Express，通过 DeepSeek / OpenRouter 调用大语言模型与图像生成模型，实现每局不同的故事、线索和画面。
 
 ## 环境要求
 
@@ -51,12 +51,12 @@ cp server/.env.example server/.env
 
 ```env
 # DeepSeek（文本生成）
-LLM_API_KEY=<你的 DeepSeek API Key>
+LLM_API_KEY=<DeepSeek API Key>
 LLM_BASE_URL=https://api.deepseek.com
 LLM_MODEL=deepseek-chat
 
 # OpenRouter（图片生成）
-OPENROUTER_API_KEY=<你的 OpenRouter API Key>
+OPENROUTER_API_KEY=<OpenRouter API Key>
 OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
 OPENROUTER_MODEL=openai/gpt-5.4
 OPENROUTER_IMAGE_MODEL=google/gemini-3.1-flash-image-preview
