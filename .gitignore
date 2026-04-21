@@ -12,3 +12,6 @@ server/test/fixtures/*.png
 
 # IDE
 .cursor/
+
+# Docs (internal)
+helpdoc/
