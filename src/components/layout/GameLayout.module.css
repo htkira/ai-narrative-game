@@ -1,0 +1,29 @@
+.root {
+  display: grid;
+  grid-template-columns: 30fr 50fr 20fr;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--game-bg);
+  overflow: hidden;
+}
+
+.left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}

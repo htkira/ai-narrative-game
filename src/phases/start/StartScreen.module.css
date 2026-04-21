@@ -1,0 +1,193 @@
+.root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 55%,
+    rgba(45, 31, 18, 0.6) 0%,
+    var(--game-bg) 70%
+  );
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  filter: blur(6px) saturate(0.5);
+  pointer-events: none;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 60% at 50% 50%,
+    transparent 20%,
+    var(--game-bg) 100%
+  );
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  animation: fadeIn 2s ease-out;
+}
+
+/* ---- 主标题: 九劫真经 ---- */
+.title {
+  font-family: var(--font-display);
+  font-size: 72px;
+  color: var(--parchment);
+  letter-spacing: 16px;
+  text-shadow:
+    0 0 40px rgba(201, 168, 76, 0.25),
+    0 0 80px rgba(201, 168, 76, 0.1),
+    0 2px 8px var(--shadow-dark);
+  margin-bottom: 12px;
+  animation: titleGlow 4s ease-in-out infinite alternate;
+}
+
+/* ---- 英文名 ---- */
+.engTitle {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 15px;
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 28px;
+}
+
+/* ---- 装饰分隔线 ---- */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.dividerLine {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gold) 50%,
+    transparent 100%
+  );
+  opacity: 0.4;
+}
+
+.dividerDot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  opacity: 0.5;
+  transform: rotate(45deg);
+}
+
+/* ---- 章节信息 ---- */
+.chapter {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  color: var(--parchment-dark);
+  letter-spacing: 6px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.location {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--parchment);
+  letter-spacing: 10px;
+  text-shadow: 0 1px 6px var(--shadow-dark);
+  margin-bottom: 48px;
+  opacity: 0.9;
+}
+
+/* ---- 开始按钮 ---- */
+.startBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 56px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  animation: fadeIn 2.5s ease-out, btnFloat 3s ease-in-out 2.5s infinite;
+}
+
+.startBtn:hover {
+  transform: scale(1.05);
+  filter: brightness(1.15);
+}
+
+.startBtn:active {
+  transform: scale(0.98);
+  filter: brightness(0.95);
+}
+
+.startLabel {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--parchment);
+  letter-spacing: 6px;
+  text-shadow: 0 1px 3px var(--shadow-dark);
+  pointer-events: none;
+}
+
+/* ---- 动画 ---- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow:
+      0 0 40px rgba(201, 168, 76, 0.2),
+      0 0 80px rgba(201, 168, 76, 0.08),
+      0 2px 8px var(--shadow-dark);
+  }
+  to {
+    text-shadow:
+      0 0 50px rgba(201, 168, 76, 0.35),
+      0 0 100px rgba(201, 168, 76, 0.15),
+      0 2px 8px var(--shadow-dark);
+  }
+}
+
+@keyframes btnFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}

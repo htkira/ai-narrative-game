@@ -1,0 +1,23 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    var(--wood-dark) 0%,
+    var(--wood-darkest) 100%
+  );
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.footer {
+  flex-shrink: 0;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}

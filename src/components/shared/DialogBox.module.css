@@ -1,0 +1,48 @@
+/* ---- TextPanel override: top area follows content height ---- */
+
+.panel > :first-child {
+  flex: 0 1 auto;
+}
+
+/* ---- Top area: spacer trick for fixed divider position ---- */
+
+.topWrapper {
+  position: relative;
+}
+
+.topSpacer {
+  display: block;
+  visibility: hidden;
+  white-space: pre-wrap;
+}
+
+.topStream {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  white-space: pre-wrap;
+}
+
+/* ---- Bottom area: player clickable options ---- */
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option {
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  padding: 2px 0;
+}
+
+.option:hover {
+  color: var(--accent-red);
+}
+
+.option:focus-visible {
+  outline: 1px dashed var(--wood-medium);
+  outline-offset: 4px;
+}

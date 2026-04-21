@@ -1,0 +1,214 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---- Claim tabs ---- */
+
+.claimTabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.claimTab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(139, 109, 70, 0.12);
+  cursor: pointer;
+  transition: transform var(--transition-fast),
+              background var(--transition-fast),
+              box-shadow var(--transition-fast);
+  min-width: 90px;
+  text-align: center;
+}
+
+.claimTab:hover:not(.statusRefuted) {
+  transform: scale(1.06);
+  background: rgba(201, 168, 76, 0.18);
+  box-shadow: 0 2px 10px rgba(201, 168, 76, 0.15);
+}
+
+.claimTab:active:not(.statusRefuted) {
+  transform: scale(0.95);
+  background: rgba(201, 168, 76, 0.25);
+}
+
+.claimTab.focused {
+  background: #FFF2E0;
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.4);
+}
+
+.claimTab.focused:hover {
+  background: #FFEACC;
+}
+
+.statusActive {
+  /* default styling */
+}
+
+.statusWeakened {
+  background: rgba(201, 168, 76, 0.20);
+}
+
+.statusWeakened:hover:not(.statusRefuted) {
+  background: rgba(201, 168, 76, 0.30);
+}
+
+.statusRefuted {
+  opacity: 0.40;
+  cursor: default;
+  transform: scale(0.95);
+}
+
+.statusRefuted .tabLabel {
+  text-decoration: line-through;
+}
+
+.tabLabel {
+  font-size: 17px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.tabStatus {
+  font-size: 14px;
+  color: var(--ink-lighter);
+  margin-top: 2px;
+}
+
+/* ---- Claim detail ---- */
+
+.claimDetail {
+  padding: 4px 0;
+  line-height: 1.6;
+}
+
+.claimText {
+  font-size: 22px;
+  color: var(--ink);
+}
+
+.claimBasis {
+  font-size: 17px;
+  color: var(--ink-lighter);
+  margin-top: 4px;
+}
+
+/* ---- Action row ---- */
+
+.actionRow {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.actionRow button span {
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-family: 'Source Han Sans CN', var(--font-primary);
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+.centered button span {
+  font-size: 17px;
+  letter-spacing: 3px;
+}
+
+/* ---- Question input ---- */
+
+.questionArea {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.questionArea input {
+  font-size: 19px;
+}
+
+.questionActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.questionActions button span {
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-family: 'Source Han Sans CN', var(--font-primary);
+}
+
+/* ---- Evidence selection prompt ---- */
+
+.prompt {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px 0;
+  color: var(--ink);
+}
+
+.promptInstruction {
+  font-size: 22px;
+}
+
+.promptTarget {
+  font-size: 17px;
+  color: var(--ink-light);
+}
+
+/* ---- Cancel link ---- */
+
+.cancelLink {
+  cursor: pointer;
+  color: var(--ink-lighter);
+  font-size: 16px;
+  transition: color var(--transition-fast);
+  user-select: none;
+}
+
+.cancelLink:hover {
+  color: var(--accent-red);
+}
+
+/* ---- Processing state ---- */
+
+.processingText {
+  font-size: 20px;
+  color: var(--ink-lighter);
+  text-align: center;
+  padding: 16px 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ---- Ended state ---- */
+
+.proceedLink {
+  font-size: 22px;
+  color: var(--ink-light);
+  cursor: pointer;
+  text-align: center;
+  letter-spacing: 6px;
+  transition: color var(--transition-fast);
+  user-select: none;
+}
+
+.proceedLink:hover {
+  color: var(--accent-red);
+}

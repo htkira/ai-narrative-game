@@ -1,0 +1,40 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.item {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.clickable {
+  cursor: pointer;
+  border-color: var(--gold);
+}
+
+.clickable:hover {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+}
+
+.dimmed {
+  opacity: 0.3;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}

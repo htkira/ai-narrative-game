@@ -1,0 +1,16 @@
+.root {
+  cursor: pointer;
+  padding: 2px 0;
+  transition: color var(--transition-fast);
+  font-size: inherit;
+  color: inherit;
+}
+
+.root:hover {
+  color: var(--accent-red);
+}
+
+.root:focus-visible {
+  outline: 1px dashed var(--wood-medium);
+  outline-offset: 4px;
+}

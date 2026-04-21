@@ -1,0 +1,70 @@
+:root {
+  --game-bg: #171B23;
+  --wood-darkest: #1e1408;
+  --wood-dark: #2d1f12;
+  --wood-medium: #5a3e2b;
+  --wood-light: #8b6914;
+  --parchment: #f0e6d0;
+  --parchment-light: #f7f0e0;
+  --parchment-dark: #d4c4a0;
+  --gold: #c9a84c;
+  --gold-bright: #e8c84c;
+  --ink: #2d1f12;
+  --ink-light: #5a4a3a;
+  --ink-lighter: #7a6a5a;
+  --accent-red: #8b2500;
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+  --shadow-medium: rgba(0, 0, 0, 0.3);
+
+  --font-primary: 'Noto Serif SC', 'SimSun', 'STSong', 'Songti SC', serif;
+  --font-display: 'Ma Shan Zheng', 'KaiTi', 'STKaiti', serif;
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+
+  --border-wood: 2px solid var(--wood-medium);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--game-bg);
+  font-family: var(--font-primary);
+  color: var(--parchment);
+}
+
+img {
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--wood-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--wood-medium);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wood-light);
+}

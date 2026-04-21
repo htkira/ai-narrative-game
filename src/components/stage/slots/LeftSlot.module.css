@@ -1,0 +1,10 @@
+.root {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 720px;
+  height: 1080px;
+  z-index: 1;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0d0a05 0%, #1e1408 100%);
+}

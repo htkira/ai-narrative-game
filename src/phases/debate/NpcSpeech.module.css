@@ -1,0 +1,48 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.name {
+  font-weight: 700;
+  color: var(--wood-dark);
+}
+
+.attitude {
+  font-size: 14px;
+  padding: 2px 10px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+}
+
+.assertive {
+  background: var(--accent-red);
+  color: var(--parchment);
+}
+
+.defensive {
+  background: var(--wood-medium);
+  color: var(--parchment);
+}
+
+.shaken {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.retreating {
+  background: var(--parchment-dark);
+  color: var(--ink-light);
+}
+
+.confessing {
+  background: var(--ink-lighter);
+  color: var(--parchment);
+}

@@ -1,0 +1,126 @@
+.panel > :first-child {
+  flex: 0 1 auto;
+}
+
+.panel > :last-child {
+  flex-shrink: 1;
+  min-height: 0;
+  max-height: 60%;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zoneName {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 2px;
+}
+
+.zoneSummary {
+  color: var(--ink-light);
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 4px 0 8px;
+  max-height: 462px;
+  overflow-y: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 207px;
+  cursor: pointer;
+}
+
+.card:focus-visible {
+  outline: 2px dashed var(--gold);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+.iconWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transform: scale(1);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.card:hover .iconWrap {
+  transform: scale(1.06);
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.card:active .iconWrap {
+  transform: scale(0.95);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.icon {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.name {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Source Han Serif CN", "Noto Serif SC", "SimSun", serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: 0px;
+  line-height: 1.4;
+  padding: 3px 27px;
+  background: rgba(255, 242, 224, 0.92);
+  border-radius: 50px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.examined .iconWrap {
+  opacity: 0.45;
+}
+
+.examined:hover .iconWrap {
+  opacity: 0.75;
+}
+
+.beadSensitive .iconWrap {
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.beadSensitive .icon {
+  filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.5));
+}

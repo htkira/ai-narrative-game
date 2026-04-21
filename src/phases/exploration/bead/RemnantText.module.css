@@ -1,0 +1,15 @@
+.root {
+  margin-top: 16px;
+}
+
+.body {
+  padding-left: 4px;
+}
+
+.text {
+  color: #B23F3F;
+  font-family: 'Source Han Serif CN', var(--font-primary);
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 1.7;
+}

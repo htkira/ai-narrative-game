@@ -1,0 +1,57 @@
+.sceneImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 20px;
+  color: var(--ink);
+  font-family: var(--font-primary);
+}
+
+.loadingText {
+  font-size: 24px;
+  letter-spacing: 4px;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.loadingHint {
+  font-size: 17px;
+  color: var(--ink-lighter);
+}
+
+.errorText {
+  font-size: 20px;
+  color: var(--accent-red);
+  text-align: center;
+  max-width: 80%;
+  line-height: 1.7;
+}
+
+.retryBtn {
+  padding: 8px 28px;
+  background: transparent;
+  border: 2px solid var(--wood-medium);
+  color: var(--ink);
+  font-family: var(--font-primary);
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.retryBtn:hover {
+  background: var(--wood-medium);
+  color: var(--parchment);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}

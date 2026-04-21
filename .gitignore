@@ -1,0 +1,14 @@
+node_modules
+dist
+.env
+.env.local
+*.local
+.DS_Store
+*.tsbuildinfo
+server/logs/
+server/cache/
+server/test/fixtures/*.json
+server/test/fixtures/*.png
+
+# IDE
+.cursor/

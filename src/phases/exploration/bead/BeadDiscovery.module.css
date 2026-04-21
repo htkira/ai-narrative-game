@@ -1,0 +1,85 @@
+.panel > :first-child {
+  flex: 0 1 auto;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.imageWrapper {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInGlow 1.2s ease-out;
+}
+
+.beadImage {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 12px rgba(201, 168, 76, 0.7));
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-shadow: 0 0 8px rgba(201, 168, 76, 0.3);
+}
+
+.description {
+  color: var(--ink-light);
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.acceptOption {
+  cursor: pointer;
+  color: var(--gold);
+  font-size: 20px;
+  padding: 2px 0;
+  transition: color var(--transition-fast);
+}
+
+.acceptOption:hover {
+  color: var(--gold-bright);
+}
+
+.acceptOption:focus-visible {
+  outline: 1px dashed var(--wood-medium);
+  outline-offset: 4px;
+}
+
+@keyframes fadeInGlow {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(201, 168, 76, 0.9));
+  }
+}

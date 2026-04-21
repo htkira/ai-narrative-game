@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--parchment);
+  overflow: hidden;
+}
+
+.embedded {
+  background-color: transparent;
+}
+
+.top {
+  flex: 1;
+  padding: 16px 0 12px;
+  overflow-y: auto;
+}
+
+.divider {
+  flex-shrink: 0;
+  height: 1px;
+  margin: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--wood-medium) 20%,
+    var(--wood-light) 50%,
+    var(--wood-medium) 80%,
+    transparent 100%
+  );
+}
+
+.bottom {
+  flex-shrink: 0;
+  max-height: 45%;
+  padding: 16px 0 16px;
+  overflow-y: auto;
+}
