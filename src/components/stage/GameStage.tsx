@@ -39,6 +39,7 @@ export function GameStage({ children, className, backgroundColor }: GameStagePro
         }}
       >
         <div
+          data-canvas
           className={styles.canvas}
           style={{
             width: DESIGN_WIDTH,

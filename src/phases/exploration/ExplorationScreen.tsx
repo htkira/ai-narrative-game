@@ -91,16 +91,29 @@ export function ExplorationScreen() {
   }, [returnToZoneList]);
 
   const [hoveredInvItemId, setHoveredInvItemId] = useState<string | null>(null);
+  const [tooltipY, setTooltipY] = useState(0);
 
   const hoveredInvClues = useMemo(() => {
     if (!hoveredInvItemId) return [];
     return clues.records.filter((c) => c.sourceItemId === hoveredInvItemId);
   }, [hoveredInvItemId, clues.records]);
 
-  const hoveredInvIndex = useMemo(() => {
-    if (!hoveredInvItemId) return -1;
-    return inventoryItems.findIndex((i) => i.itemId === hoveredInvItemId);
+  const hoveredInvItem = useMemo(() => {
+    if (!hoveredInvItemId) return null;
+    return inventoryItems.find((i) => i.itemId === hoveredInvItemId) ?? null;
   }, [hoveredInvItemId, inventoryItems]);
+
+  const handleInvHover = useCallback((itemId: string, e: React.MouseEvent) => {
+    setHoveredInvItemId(itemId);
+    const el = e.currentTarget as HTMLElement;
+    const canvas = el.closest('[data-canvas]') as HTMLElement | null;
+    if (canvas) {
+      const canvasRect = canvas.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+      const scale = canvasRect.width / 1920;
+      setTooltipY((elRect.top - canvasRect.top) / scale);
+    }
+  }, []);
 
   const [showBeadDiscovery, setShowBeadDiscovery] = useState(false);
   const prevBeadFoundRef = useRef(bead.found);
@@ -214,7 +227,7 @@ export function ExplorationScreen() {
             <div
               key={item.itemId}
               className={styles.invItem}
-              onMouseEnter={() => setHoveredInvItemId(item.itemId)}
+              onMouseEnter={(e) => handleInvHover(item.itemId, e)}
               onMouseLeave={() => setHoveredInvItemId(null)}
             >
               {item.iconUrl && (
@@ -229,21 +242,23 @@ export function ExplorationScreen() {
         </div>
       </RightSlot>
 
-      {hoveredInvItemId && hoveredInvClues.length > 0 && hoveredInvIndex >= 0 && (
-        <div
-          className={styles.invTooltip}
-          style={{ top: 91 + hoveredInvIndex * 110 }}
-        >
-          <div className={styles.tooltipName}>
-            {inventoryItems[hoveredInvIndex]?.name}
+      {hoveredInvItemId && hoveredInvClues.length > 0 && hoveredInvItem && (() => {
+        const availableBelow = 1060 - tooltipY;
+        const flipUp = availableBelow < 160;
+        const pos: React.CSSProperties = flipUp
+          ? { bottom: 1080 - tooltipY, maxHeight: Math.min(400, tooltipY) }
+          : { top: tooltipY, maxHeight: Math.min(400, availableBelow) };
+        return (
+          <div className={styles.invTooltip} style={pos}>
+            <div className={styles.tooltipName}>{hoveredInvItem.name}</div>
+            {hoveredInvClues.map((clue) => (
+              <div key={clue.clueId} className={styles.tooltipClue}>
+                {clue.title}：{clue.summary}
+              </div>
+            ))}
           </div>
-          {hoveredInvClues.map((clue) => (
-            <div key={clue.clueId} className={styles.tooltipClue}>
-              {clue.title}：{clue.summary}
-            </div>
-          ))}
-        </div>
-      )}
+        );
+      })()}
 
       <ProgressSlot>
         <span>已收集线索&emsp;{clues.foundCount}/{clues.total}</span>

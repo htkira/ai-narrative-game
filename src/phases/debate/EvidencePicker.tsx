@@ -5,7 +5,7 @@ interface EvidencePickerProps {
   items: Item[];
   isSelecting: boolean;
   onSelect: (itemId: string) => void;
-  onItemHover?: (itemId: string) => void;
+  onItemHover?: (itemId: string, e: React.MouseEvent) => void;
   onItemLeave?: () => void;
 }
 
@@ -26,7 +26,7 @@ export function EvidencePicker({
             key={item.itemId}
             className={`${styles.item} ${isClickable ? styles.clickable : ''} ${isSelecting && !item.isEvidence ? styles.dimmed : ''}`}
             onClick={() => isClickable && onSelect(item.itemId)}
-            onMouseEnter={() => onItemHover?.(item.itemId)}
+            onMouseEnter={(e) => onItemHover?.(item.itemId, e)}
             onMouseLeave={() => onItemLeave?.()}
             role={isClickable ? 'button' : undefined}
             tabIndex={isClickable ? 0 : undefined}

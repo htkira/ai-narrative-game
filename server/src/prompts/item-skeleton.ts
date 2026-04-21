@@ -120,7 +120,7 @@ export const itemSkeletonPrompt: PromptTemplate<SceneLayoutOutput> = {
     name: 'item_skeleton',
     description: 'Item skeleton with evidence line assignments',
     schema: defineSchema({
-      items: arraySchema(itemSchema, { minItems: 8, maxItems: 12 }),
+      items: arraySchema(itemSchema, { minItems: 10, maxItems: 14 }),
     }),
   },
   buildMessages: (layout: SceneLayoutOutput) => {
@@ -177,22 +177,28 @@ ${zoneList}
 
 ## 物品要求
 
-### 物品（8-12个）
+### 物品（10-14个）
 - itemId格式: item_1, item_2, ... 残缺念珠用 item_bead
 - 每个物品分配到一个区域（物品和它所在的区域必须符合逻辑关系）
 - **分类要求**:
   - atmosphere（纯氛围物）: 至少2个，建立空间真实感
-  - false_clue（伪线索物）: 至少1个，看起来可疑但不推动主线
-  - true_clue（真线索物）: 至少3个，帮助拼出真相的关键物证
+  - false_clue（伪线索物）: 至少2个，看起来可疑但实际无法反驳NPC的核心观点
+  - true_clue（真线索物）: 至少5个，帮助拼出真相的关键物证
   - special（残缺念珠）: 恰好1个，itemId必须是item_bead
 - **标记规则**:
-  - hasClue: 仅true_clue类物品设为true，其余类别均为false
+  - hasClue: true_clue 和 false_clue 物品均设为true（两者都会被提取线索并出现在辩论物证栏中），atmosphere和special为false
   - beadReactive: atmosphere、false_clue、true_clue都可以设为true（可被念珠感应出残念），至少2个物品为true，special本身为false
   - special（念珠）的hasClue、beadReactive均为false
 - **evidenceLines 标记**:
   - true_clue 和 false_clue 物品：标注该物品承载的推理线（如 ["A"], ["B","D"]）
   - atmosphere 物品：空数组 []
   - special 物品：空数组 []
+
+### 物证丰富度（极重要！）
+辩论阶段玩家需要从物证栏中选择物品来反驳NPC的3条错误观点。为了让选择有策略深度而非暴力穷举，需要保证物证栏中有足够多的物品（目标7-10个），其中包含：
+- **关键物证**（true_clue）：每条参与辩论的推理线（A/B/D）至少有1个物品承载能直接反驳NPC错误前提的强力证据
+- **补充物证**（true_clue）：同一推理线上的第2个物品，提供相关但不够决定性的观察（如D线上"有骨粉残留"只能说明骨头碎了，不能说明是被吃还是被搬；但"有序的搬运拖痕"才能证明是搬运而非食用）。这类物品在辩论中选中时会被NPC轻松驳回
+- **干扰物证**（false_clue）：看似有关联的可疑物品，但其线索指向的事实无法否定NPC的任何错误前提。选中时NPC会嘲讽玩家
 
 ### 物品创意方向
 物品应大部分来自屋子主人的日常生活与职业（体现场景设定中的居住者身份和生计痕迹），同时结合真实事件链的痕迹。

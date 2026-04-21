@@ -63,7 +63,8 @@ export const questionResponsePrompt: PromptTemplate<QuestionPromptInput> = {
    - shaken: 明显心虚，开始自相矛盾
    - retreating: 支支吾吾，不断改口
 7. 回应要自然、口语化，带有中国古代山村的语气
-8. 使用第一人称（NPC视角），不要用"你"称呼自己`),
+8. 使用第一人称（NPC视角），不要用"你"称呼自己
+9. npcSpeech必须是纯对话文字，禁止用括号描写动作或表情（如"（拍桌子）""（冷笑）"），情绪通过语气和用词传达`),
     user(`## 所有观点概览
 ${input.claimsOverview}
 
@@ -142,7 +143,8 @@ export const evidenceHitPrompt: PromptTemplate<EvidenceHitPromptInput> = {
    - retreating: 声音发虚，开始怀疑自己的其他观点
 3. 可以尝试转到其他观点上，但不能否认证据的有效性
 4. 回应自然口语化，带有山村长辈特征
-5. 不要提及玩家不可能知道的信息`),
+5. 不要提及玩家不可能知道的信息
+6. npcSpeech必须是纯对话文字，禁止用括号描写动作或表情`),
     user(`## 所有观点概览
 ${input.claimsOverview}
 
@@ -208,7 +210,8 @@ ${input.playerText ? `玩家说: "${input.playerText}"` : ''}
 2. 态度比之前更强硬一些，趁机巩固自己的立场
 3. 可以嘲笑或质疑玩家的推理能力
 4. 但不要太过分，保持山村长辈的底线
-5. 回应简短有力`),
+5. 回应简短有力
+6. npcSpeech必须是纯对话文字，禁止用括号描写动作或表情`),
     user(`## 近期对话
 ${input.recentHistory}
 
@@ -281,7 +284,8 @@ npcSpeech 必须是一段完整的、自然连贯的台词（120-200字），包
 
 ## 其他规则
 - 回应自然口语化，带有山村人物特征
-- 不要提及玩家不可能知道的信息`),
+- 不要提及玩家不可能知道的信息
+- npcSpeech必须是纯对话文字，禁止用括号描写动作或表情`),
     user(`## 被驳倒的观点概览
 ${input.claimsOverview}
 
